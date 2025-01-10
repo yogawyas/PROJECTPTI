@@ -1,27 +1,28 @@
-// src/components/Contact.js
 import React from 'react';
 
-const Contact = () => {
+function Contact() {
   return (
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <form>
-        <label>
-          Name:
-          <input type="text" name="name" />
-        </label>
-        <label>
-          Email:
-          <input type="email" name="email" />
-        </label>
-        <label>
-          Message:
-          <textarea name="message"></textarea>
-        </label>
-        <button type="submit">Send</button>
-      </form>
-    </section>
+    <div className="contact-container">
+      <h1>Hubungi Kami</h1>
+      
+      <div className="contact-card">
+        <h2>Yoga Company</h2>
+        <div className="contact-details">
+          <p>
+            <i className="fab fa-whatsapp"></i>
+            <span>+62 812-3456-7890</span>
+          </p>
+          <p>
+            <i className="fas fa-envelope"></i>
+            <span>admin@yogacompany.com</span>
+          </p>
+          <p className="contact-hours">
+            Jam Operasional: Senin - Jumat (09:00 - 17:00 WIB)
+          </p>
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
 export default Contact;

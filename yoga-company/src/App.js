@@ -8,6 +8,11 @@ import Contact from './components/contact';
 import Footer from './components/footer';
 import './assets/styles/mainpages.css';
 import Membership from './components/membership';
+import './assets/styles/home.css';
+import './assets/styles/about.css';
+import './assets/styles/services.css';
+import './assets/styles/contact.css';
+import './assets/styles/membership.css';
 const App = () => {
   return (
     <Router>

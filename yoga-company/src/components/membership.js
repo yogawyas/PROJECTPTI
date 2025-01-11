@@ -1,6 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import '../assets/styles/membership.css';
 
 function Membership() {
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.style.setProperty('--item-index', index);
+          entry.target.classList.add('animate-on-scroll');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('[data-animate]');
+    animatedElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   const membershipPlans = [
     {
       id: 1,
@@ -61,16 +85,18 @@ function Membership() {
 
   return (
     <div className="membership-container">
-      <h1>Paket Membership Laundry</h1>
-      <p className="membership-intro">
-        Hemat dan praktis dengan berlangganan paket membership bulanan kami
+      <h1 data-animate>Paket Membership Laundry</h1>
+      <p className="membership-intro" data-animate>
+        Hemat dan praktis dengan berlangganan paket membership bulanan kami. 
+        Nikmati berbagai keuntungan eksklusif untuk member.
       </p>
 
       <div className="membership-grid">
-        {membershipPlans.map((plan) => (
+        {membershipPlans.map((plan, index) => (
           <div 
             key={plan.id} 
             className={`membership-card ${plan.recommended ? 'recommended' : ''}`}
+            data-animate
           >
             {plan.recommended && (
               <div className="recommended-badge">BEST VALUE</div>
@@ -78,8 +104,8 @@ function Membership() {
             <h2>{plan.name}</h2>
             <div className="price">{plan.price}</div>
             <ul className="features-list">
-              {plan.features.map((feature, index) => (
-                <li key={index}>{feature}</li>
+              {plan.features.map((feature, idx) => (
+                <li key={idx}>{feature}</li>
               ))}
             </ul>
             <button className="join-button">
@@ -89,7 +115,7 @@ function Membership() {
         ))}
       </div>
 
-      <div className="membership-note">
+      <div className="membership-note" data-animate>
         <h3>Syarat dan Ketentuan:</h3>
         <ul>
           <li>Biaya pendaftaran Rp 50.000 (one-time payment)</li>

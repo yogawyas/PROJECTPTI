@@ -1,3 +1,24 @@
+/* animasi mainpages */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: calc(var(--item-index, 0) * 0.2s);
+}
+
+
+/* mengatur layout website */
 main {
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -58,480 +79,73 @@ main {
     color: #0056b3;
   }
   
-
-  /* home css */
-  .home-container {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .hero-section {
-    text-align: center;
-    padding: 4rem 0;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    margin-bottom: 3rem;
-  }
-  
-  .hero-section h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 1rem;
-  }
-  
-  .tagline {
-    font-size: 1.2rem;
-    color: #666;
-  }
-  
-  .features-section {
-    margin-bottom: 3rem;
-  }
-  
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .feature-card {
-    padding: 1.5rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .services-preview {
-    margin-bottom: 3rem;
-  }
-  
-  .services-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .service-item {
-    padding: 1.5rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 2rem;
-  }
-  
-  h3 {
-    color: #444;
-    margin-bottom: 1rem;
-  }
-  
-  p {
-    color: #666;
-    line-height: 1.6;
-  }
-
-  /* Styling untuk halaman Services */
-.services-container {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+/* Reset default margin dan padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.services-intro {
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #111827;
+}
+
+/* Hapus styling main yang membuat kotak */
+main {
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: calc(var(--item-index, 0) * 0.2s);
+}
+
+/* Mengatur layout website */
+nav {
+  margin: 0;
   text-align: center;
-  margin-bottom: 2rem;
-  color: #666;
+  width: 100%;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.service-card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-}
-
-.service-description {
-  color: #666;
-  margin: 1rem 0;
-}
-
-.price {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #2c5282;
-  margin: 1rem 0;
-}
-
-.service-details {
+nav ul {
   list-style: none;
   padding: 0;
-  margin: 1.5rem 0;
+  margin: 0;
 }
 
-.service-details li {
-  padding: 0.5rem 0;
-  color: #4a5568;
-  position: relative;
-  padding-left: 1.5rem;
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
 }
 
-.service-details li:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #48bb78;
-}
-
-.order-button {
-  width: 100%;
-  padding: 1rem;
-  background-color: #2c5282;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.order-button:hover {
-  background-color: #2a4365;
-}
-
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* Styling untuk halaman About */
-.about-container {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.about-hero {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.about-hero h1 {
-  font-size: 2.5rem;
-  color: #2c5282;
-  margin-bottom: 2rem;
-}
-
-.about-description {
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
-
-.about-description p {
-  margin-bottom: 1.5rem;
-}
-
-.vision-mission {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
-  padding: 2rem;
-  background-color: #f7fafc;
-  border-radius: 8px;
-}
-
-.vision, .mission {
-  padding: 2rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.vision h2, .mission h2 {
-  color: #2c5282;
-  margin-bottom: 1.5rem;
-}
-
-.mission ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.mission li {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.mission li:before {
-  content: "•";
-  color: #2c5282;
-  position: absolute;
-  left: 0;
-}
-
-.team-section {
-  margin-top: 4rem;
-}
-
-.team-section h2 {
-  text-align: center;
-  color: #2c5282;
-  margin-bottom: 3rem;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.team-card {
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.team-card:hover {
-  transform: translateY(-5px);
-}
-
-.team-image-container {
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-}
-
-.team-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.team-card:hover .team-image {
-  transform: scale(1.05);
-}
-
-.team-info {
-  padding: 1.5rem;
-}
-
-.team-info h3 {
-  color: #2c5282;
-  margin-bottom: 0.5rem;
-}
-
-.team-info h4 {
-  color: #4a5568;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.team-info p {
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .vision-mission {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Contact Page Styles */
-.contact-container {
-  padding: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.contact-card {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.contact-details {
-  margin-top: 1.5rem;
-}
-
-.contact-details p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  color: #555;
+nav ul li a {
+  text-decoration: none;
+  color: #0070f3;
+  font-weight: bold;
   font-size: 1.2rem;
 }
 
-.contact-details i {
-  margin-right: 1rem;
-  color: #2c5282;
-  font-size: 1.5rem;
-}
-
-.contact-hours {
-  font-style: italic;
-  color: #666;
-  margin-top: 1rem;
-}
-
-
-
-/* Membership Page Styles */
-.membership-container {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.membership-intro {
-  text-align: center;
-  color: #666;
-  margin-bottom: 2rem;
-}
-
-.membership-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.membership-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.membership-card:hover {
-  transform: translateY(-5px);
-}
-
-.membership-card.recommended {
-  border: 2px solid #2c5282;
-}
-
-.recommended-badge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background-color: #2c5282;
-  color: white;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-}
-
-.membership-card h2 {
-  color: #2c5282;
-  margin-bottom: 1rem;
-}
-
-.price {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #2d3748;
-  margin-bottom: 1.5rem;
-}
-
-.features-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
-.features-list li {
-  padding: 0.5rem 0;
-  color: #4a5568;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.features-list li:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #48bb78;
-}
-
-.join-button {
-  width: 100%;
-  padding: 1rem;
-  background-color: #2c5282;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.join-button:hover {
-  background-color: #2a4365;
-}
-
-.membership-note {
-  background-color: #f7fafc;
-  padding: 2rem;
-  border-radius: 8px;
-  margin-top: 3rem;
-}
-
-.membership-note h3 {
-  color: #2c5282;
-  margin-bottom: 1rem;
-}
-
-.membership-note ul {
-  list-style: disc;
-  padding-left: 1.5rem;
-  color: #4a5568;
-}
-
-.membership-note li {
-  margin-bottom: 0.5rem;
-}
-
-@media (max-width: 768px) {
-  .membership-grid {
-    grid-template-columns: 1fr;
-  }
+nav ul li a:hover {
+  color: #0056b3;
 }

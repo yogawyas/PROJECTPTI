@@ -1,7 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../assets/styles/mainpages.css';
 
+
 const Services = () => {
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.style.setProperty('--item-index', index);
+          entry.target.classList.add('animate-on-scroll');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Mengamati semua elemen yang perlu dianimasi
+    const animatedElements = document.querySelectorAll('[data-animate]');
+    animatedElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+  
   const services = [
     {
       id: 1,
@@ -43,12 +68,18 @@ const Services = () => {
 
   return (
     <div className="services-container">
-      <h1>Layanan Kami</h1>
-      <p className="services-intro">Pilih layanan yang sesuai dengan kebutuhan Anda</p>
+      <h1 data-animate>Layanan Kami</h1>
+      <p className="services-intro" data-animate>
+        Pilih layanan yang sesuai dengan kebutuhan Anda
+      </p>
       
       <div className="services-grid">
         {services.map((service) => (
-          <div key={service.id} className="service-card">
+          <div 
+            key={service.id} 
+            className="service-card"
+            data-animate
+          >
             <h2>{service.name}</h2>
             <p className="service-description">{service.description}</p>
             <div className="price">{service.price}</div>
@@ -57,7 +88,10 @@ const Services = () => {
                 <li key={index}>{detail}</li>
               ))}
             </ul>
-            <button className="order-button" onClick={() => alert(`Anda memilih layanan ${service.name}`)}>
+            <button 
+              className="order-button" 
+              onClick={() => alert(`Anda memilih layanan ${service.name}`)}
+            >
               Pilih Layanan
             </button>
           </div>

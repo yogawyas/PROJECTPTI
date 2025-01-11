@@ -149,3 +149,131 @@ nav ul li a {
 nav ul li a:hover {
   color: #0056b3;
 }
+
+/* Responsive Breakpoints */
+@media (max-width: 1400px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  .hero-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .title-top {
+    font-size: 2.2rem;
+  }
+  
+  .title-bottom {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+    padding: 0 1rem;
+  }
+  
+  .weather-widget {
+    position: static;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .features-grid,
+  .services-list,
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .vision-mission {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .title-top {
+    font-size: 1.8rem;
+  }
+  
+  .title-bottom {
+    font-size: 2.2rem;
+  }
+  
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .contact-details p {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+  
+  .map-container iframe {
+    height: 300px;
+  }
+  
+  .membership-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Landscape mode untuk mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .weather-widget {
+    position: static;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .map-container iframe {
+    filter: invert(90%) hue-rotate(180deg);
+  }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-section h1,
+  .section-title {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Print styles */
+@media print {
+  .weather-widget,
+  .nav-menu,
+  .map-container {
+    display: none;
+  }
+}
